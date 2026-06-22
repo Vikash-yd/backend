@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/auth")
 @CrossOrigin(origins = "http://localhost:5173")
@@ -59,7 +61,7 @@ public ResponseEntity<?> login(@RequestBody Users user) {
 
     // LOGIN RESPONSE DTO (avoid JPA issues)
     private record LoginResponse(
-            Long id,
+            UUID id,
             String name,
             String email
     ) {}

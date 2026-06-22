@@ -1,14 +1,13 @@
 package com.SoulSpace.backend.Services;
 import com.SoulSpace.backend.Models.Role;
-import com.SoulSpace.backend.Repos.UserRepository;
 import com.SoulSpace.backend.Dtos.UserRequestDTO;
 import com.SoulSpace.backend.Dtos.UserResponseDTO;
 import com.SoulSpace.backend.Models.Users;
+import com.SoulSpace.backend.Repositories.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
