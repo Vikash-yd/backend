@@ -1,11 +1,8 @@
 spring:
-  application:
-    name: backend
-
   datasource:
-    url: jdbc:mysql://localhost:3306/soulspace_db
+    url: jdbc:mysql://thomas.proxy.rlwy.net:30933/railway
     username: root
-    password: root1234
+    password: pvQOwOFwsaAFNVPQEGdANfudlcoZYhPR
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
