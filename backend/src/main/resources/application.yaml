@@ -1,9 +1,12 @@
 spring:
+  application:
+    name: backend
+
   datasource:
-    url: jdbc:mysql://thomas.proxy.rlwy.net:30933/railway
-    username: root
-    password: pvQOwOFwsaAFNVPQEGdANfudlcoZYhPR
-    driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://thomas.proxy.rlwy.net:30933/railway?useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: pvQOwOFwsaAFNVPQEGdANfudlcoZYhPR
+      driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
@@ -11,4 +14,5 @@ spring:
     show-sql: true
 
 server:
+  address: 0.0.0.0
   port: 8080
