@@ -1,65 +1,49 @@
 package com.SoulSpace.backend.Models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Table(name = "seats")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Seat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, unique = true)
     private String seatNumber;
 
-    private boolean booked;
-
+    @Column(nullable = false)
     private Long hallId;
 
-    // 🔥 NEW FIELD (IMPORTANT)
-    private Long userId;
+    // Floor number
+    private Integer floor;
 
-    public Seat() {}
+    // Example: Silent Zone, Discussion Zone, Premium Zone
+    private String zone;
 
-    public Seat(String seatNumber, boolean booked, Long hallId) {
-        this.seatNumber = seatNumber;
-        this.booked = booked;
-        this.hallId = hallId;
-    }
+    // Example: East Wing, Window Side, Corner
+    private String location;
 
-    public Long getId() {
-        return id;
-    }
+    @Builder.Default
+    @Column(nullable = false)
+    private Boolean hasChargingPort = false;
 
-    public String getSeatNumber() {
-        return seatNumber;
-    }
+    @Builder.Default
+    @Column(nullable = false)
+    private Boolean nearWindow = false;
 
-    public void setSeatNumber(String seatNumber) {
-        this.seatNumber = seatNumber;
-    }
-
-    public boolean isBooked() {
-        return booked;
-    }
-
-    public void setBooked(boolean booked) {
-        this.booked = booked;
-    }
-
-    public Long getHallId() {
-        return hallId;
-    }
-
-    public void setHallId(Long hallId) {
-        this.hallId = hallId;
-    }
-
-    // 🔥 NEW GETTER/SETTER
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+    @Builder.Default
+    @Column(nullable = false)
+    private Boolean active = true;
 }

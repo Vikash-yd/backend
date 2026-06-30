@@ -10,12 +10,11 @@ public interface SeatRepository extends JpaRepository<Seat, Long> {
 
     List<Seat> findByHallId(Long hallId);
 
-    List<Seat> findBySeatNumberAndHallId(
-            String seatNumber,
-            Long hallId
-    );
+    Optional<Seat> findBySeatNumber(String seatNumber);
 
-    Optional<Seat> findByUserId(Long userId);
+    Optional<Seat> findBySeatNumberAndHallId(String seatNumber, Long hallId);
 
-    List<Seat> findAllByUserId(Long userId);
+    List<Seat> findByActiveTrue();
+
+    List<Seat> findByHallIdAndActiveTrue(Long hallId);
 }
